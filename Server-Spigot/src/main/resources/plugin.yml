@@ -1,0 +1,4 @@
+name: Pinger-Spigot
+version: '${project.version}'
+main: tech.blastmc.serverspigot.ServerSpigot
+api-version: 1.17
