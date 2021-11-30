@@ -3,7 +3,6 @@ package tech.blastmc.pinger.client;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.util.Identifier;
@@ -49,7 +48,8 @@ public class PingerClient implements ClientModInitializer {
 			case BLOCK -> {
 				BlockHitResult blockHitResult = (BlockHitResult) hit;
 				BlockPos pos = blockHitResult.getBlockPos();
-				pos = pos.add(blockHitResult.getSide().getVector());
+				if (blockHitResult.getSide() != Direction.UP)
+					pos = pos.add(blockHitResult.getSide().getVector());
 				PingManager.newPing(new BlockPosPing(pos));
 			}
 			case ENTITY -> {

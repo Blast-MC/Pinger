@@ -11,6 +11,9 @@
   "entrypoints": {
     "client": [
       "tech.blastmc.pinger.client.PingerClient"
+    ],
+    "server": [
+      "tech.blastmc.pinger.server.PingerServer"
     ]
   },
   "mixins": [
@@ -19,7 +22,7 @@
   "depends": {
     "fabricloader": ">=0.11.6",
     "fabric": "*",
-    "minecraft": "1.17.1",
+    "minecraft": "1.18-rc.1",
     "fabric-key-binding-api-v1": "*"
   }
 }
